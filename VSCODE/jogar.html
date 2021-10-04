@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="java.js"></script>
+  <title>hora da conversa</title>
+
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="java.js"  src="js/materialize.min.js" ></script> <br>
+    -->
+  <!-- <script src="java.js"></script> -->
+  <!-- <script type="text/javascript" ></script> ERRO CHAMA INCORRETA DO JS -->
+</head>
+<style>
+  .gruposImg {
+    border-width: 10px;
+    border-color: white;
+    margin: auto;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+  }
+
+  .tabuleiro {
+    border-width: 10px;
+    border-color: white;
+    margin: absolute;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-bottom: 10px;
+    padding-right: 1000px;
+    width: 200px;
+    display: inline;
+  }
+
+  -->#btn-dado {
+    height: 85px;
+    width: 85px;
+    display: inline;
+    margin: auto;
+    margin-left: 1100px;
+    position: ;
+  }
+
+  #gruposImg {
+    width: auto;
+    margin: auto;
+    margin-left: 1100px;
+    margin-top: 0px;
+    display: inline;
+  }
+  body {
+    background-color: #ececec;
+    transform-style: preserve-3d;
+    perspective: 2000px;
+    display: flex;
+    justify-content: center;
+  }
+  label .cardWrapper {
+    position: relative;
+    height: 40vmin;
+    width: calc(40vmin / 1.4);
+    background-color:white;
+    background-image: ()(
+        120deg,
+        rgba(255, 0, 0, 0.5),
+        rgba(255, 0, 0, 0.5) 1px,
+        transparent 1px,
+        transparent 60px
+      ),
+      repeating-linear-gradient(
+        60deg,
+        rgba(255, 0, 0, 0.5),
+        rgba(255, 0, 0, 0.5) 1px,
+        transparent 1px,
+        transparent 60px
+      ),
+      linear-gradient(
+        60deg,
+        rgba(0, 0, 0, 0.1) 25%,
+        transparent 25%,
+        transparent 75%,
+        rgba(0, 0, 0, 0.1) 75%,
+        rgba(0, 0, 0, 0.1)
+      ),
+      linear-gradient(
+        120deg,
+        rgba(0, 0, 0, 0.1) 25%,
+        transparent 25%,
+        transparent 75%,
+        rgba(0, 0, 0, 0.1) 75%,
+        rgba(0, 0, 0, 0.1)
+      );
+    background-size: 70px 120px;
+    margin: calc(40vmin / 10);
+    border-radius: calc(40vmin / 20);
+    box-shadow: 0 calc(40vmin / 40) calc(40vmin / 10) 0 rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    float: left;
+    transition: transform 200ms linear, box-shadow 100ms linear;
+    transform: rotateY(0deg);
+  }
+  input:checked + label .cardWrapper {
+    transform: rotateY(180deg);
+  }
+  .cardRandom {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 1;
+    cursor: pointer;
+    transition: opacity 1ms linear 100ms;
+  }
+  .cardWrapper:hover {
+    filter: brightness(0.98);
+  }
+  input:focus + label .cardWrapper {
+    box-shadow: 0 0 calc(40vmin / 100) 0 rgba(0, 0, 0, 0.5);
+  }
+  input:checked + label .cardRandom {
+    opacity: 0;
+  }
+  .cardRandom::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: ;
+    background-size: cover;
+    animation: randomCard 1000ms steps(51, end) infinite;
+    animation-play-state: paused;
+    transform: rotate(180deg);
+  }
+  input:checked + label .cardRandom::before {
+    animation-play-state: running;
+  }
+  input {
+    height: 0;
+    width: 0;
+    border: none;
+    outline: none;
+    display: none;
+  }
+  @keyframes randomCard {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
+  
+  .linkElement {
+    position: absolute;
+    bottom: -40px;
+    font-family: sans-serif;
+    font-size: 20px;
+    color: #4069e1;
+    text-decoration: none;
+  }
+  .linkElement:hover {
+    filter: hue-rotate(-45deg);
+  }
+</style>
+
+<header>
+  <!-- <div class="row">
+<div class= "col s12">
+ <nav>
+    <div class="nav-wrapper">
+       <a href="comunidadeintegrada.html" class="brand-logo">Comunidade Integrada</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Como jogar?</a></li>
+        <li><a href="jogar.html">jogar</a></li>
+        <li><a href="collapsible.html">Contato</a></li>
+        <li><a btn-flat="" onclick="md()" id="md">Modo Diurno</a></li>
+      </ul>
+    </div> </div> </div>
+  </nav> -->
+
+
+</header>
+
+
+<body>
+
+  <div class="row">
+    <!-- Conteúdo do DADO-->
+    <button id="btn-dado" onclick="girarDado()"></button><br>
+    <img src="img/1.png" alt="minhaImagem" id="gruposImg">
+  </div>
+
+  <input type="checkbox" id="card_01" checked>
+  <label for="card_01">
+    <div class="cardWrapper">
+      <div class="cardRandom"></div>
+    </div>
+  </label>
+  <input type="checkbox" id="card_02" checked>
+  <label for="card_02">
+    <div class="cardWrapper">
+      <div class="cardRandom"></div>
+    </div>
+  </label>
+  
+      <!--<i class="material-icons right"-->
+
+
+      <!-- Conteúdo do TABULEIRO-->
+      <div class="tabuleiro">
+        <img src="img/tabuleiro.png" alt="tabuleiro" id="tab" width="880px">
+      </div>
+    </div>
+    <!--     
+       <div class="col l4 offset-l2 s12" id="btn" > Conteúdo dos BOTÕES DE SORTEIO 
+          <button onclick="cartaAmarela()" class="btn waves-effect waves-light"  type="submit" width="120px" name="action" >Sortear</button>
+          <button onclick="cartaAzul()" class="btn waves-effect waves-light"  type="submit" width="120px" name="action" >Sortear</button>
+          <button onclick="cartaVerde()" class="btn waves-effect waves-light"  type="submit" width="120px" name="action" >Sortear</button> 
+          <button onclick="cartaVermelha()" class="btn waves-effect waves-light"  type="submit" width="120px" name="action" >Sortear</button> 
+            <img src="cartinhas/amarela/d.png"  alt="cartasamarelas" id="sorteioAmarelas"      width="100px" >
+            <img src="cartinhas/azul/sc.png"  alt="cartasazuis" id="sorteioAzuis"              width="100px">
+            <img src="cartinhas/verde/a.png"  alt="cartasverdes" id="sorteioVerdes"            width="100px"> 
+            <img src="cartinhas/vermelha/dsa.png"  alt="cartasvermelhas" id="sorteioVermelhas" width="100px">
+        </div>
+       -->
+    </div> <!-- div fechamento da classe ROW-->
+
+
+    <!-- FOOTER-->
+    <!-- <div class="bot">
+<div class= "footer">
+<footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
+ -->
+
+</body>

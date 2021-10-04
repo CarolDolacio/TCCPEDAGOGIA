@@ -16,12 +16,29 @@ altDado [3] = "4";
 altDado [4] = "5";
 altDado [5] = "6";
 
- function girarDado(){
-     
-    document.getElementById('gruposImg').setAttribute('src', dado[Math.floor((Math.random() * dado.length))]);
-    document.getElementById('gruposImg').setAttribute('alt', altDado[Math.floor((Math.random() * dado.length))]);
+var controleRepeticao = new Array();
+controleRepeticao[0]=0;
+controleRepeticao[1]=1;
+controleRepeticao[2]=2;
+controleRepeticao[3]=3;
+controleRepeticao[4]=4;
+controleRepeticao[5]=5;
 
- }
+function girarDado(){
+	var indice = Math.floor((Math.random()* controleRepeticao.length));
+	var indice1 = controleRepeticao[indice];
+	controleRepeticao.splice(indice, 1);
+	
+    document.getElementById('gruposImg').setAttribute('src', dado[indice1]);
+    document.getElementById('gruposImg').setAttribute('alt', altDado[indice1]);
+	if(controleRepeticao.length==0){
+		controleRepeticao[0]=0;
+		controleRepeticao[1]=1;
+		controleRepeticao[2]=2;
+		controleRepeticao[3]=3;
+		controleRepeticao[4]=4;
+      controleRepeticao[5]=5;
+   }}
  function gruposImg(){
     setInterval(function(){girarDado()},1000)
  }
@@ -233,8 +250,8 @@ altBaralhoVermelho [11] ="bvermelho12";
 
  function cartaVermelha(){ // aqui, a função precisa ter o mesmo nome da ação onClick do HTML
      
-    document.getElementById('sorteioVermelhas').setAttribute('src', bvermelha[Math.floor((Math.random() * bvermelha.length))]);
-    document.getElementById('sorteioVermelhas').setAttribute('alt', altBaralhoVermelho[Math.floor((Math.random() * bvermelha.length))]);
+    document.getElementById('sorteioVermelhas').setAttribute('src', bvermelha[Math.floor((Math.random() * bvermelha.length ))]);
+    document.getElementById('sorteioVermelhas').setAttribute('alt', altBaralhoVermelho[Math.floor((Math.random() * bvermelha.length ))]);
 
  }
  function sorteioVerdes(){
